@@ -5,6 +5,35 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to CaesEntraLogin</h1>
+    <p class="lead">A demonstration of Microsoft Entra authentication with ASP.NET Core.</p>
+    
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">You are signed in!</h4>
+            <p>Hello <strong>@(User.Identity.Name ?? "User")</strong>, you have successfully authenticated with Microsoft Entra.</p>
+            <hr>
+            <p class="mb-0">
+                <a class="btn btn-primary" asp-page="/Welcome">View Your Profile</a>
+                <a class="btn btn-outline-secondary" href="/Logout">Sign Out</a>
+            </p>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">Authentication Required</h4>
+            <p>Please sign in with your Microsoft account to access protected features.</p>
+            <hr>
+            <p class="mb-0">
+                <a class="btn btn-primary" asp-page="/Login">Go to Login Page</a>
+                <a class="btn btn-outline-primary" asp-page="/Login">Sign In Directly</a>
+            </p>
+        </div>
+    }
+    
+    <div class="mt-4">
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
 </div>

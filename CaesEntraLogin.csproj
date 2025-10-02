@@ -1,10 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>f5fce777-b048-4b8d-9b5e-af2ef9241261</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Identity.Web" Version="3.14.1" />
+  </ItemGroup>
 
   <Target Name="LibmanRestore" BeforeTargets="Build" Condition="!Exists('wwwroot/lib/')">
     <Exec Command="libman restore" />
