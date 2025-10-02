@@ -106,3 +106,6 @@ coverage/
 
 # Client-side libraries (managed by LibMan)
 wwwroot/lib/
+
+publish/*
+deploy.zip
